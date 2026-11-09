@@ -1,0 +1,51 @@
+:PROPERTIES:
+:ID:       20250527T204403
+:END:
+#+title: Godot Memory Allocation
+#+author: Hongbin Qu
+#+date: <2025-05-27 Tue>
+#+hugo_section: en/cpp-notes
+#+hugo_tags: "Memory Management"
+#+hugo_categories: "CPP"
+#+hugo_custom_front_matter: :logs "power by AI"
+#+hugo_custom_front_matter: :logs_descripe "The design about Memory Management of Godot game engine"
+
+
+* Godot Memory Allocation
+
+Godot provides its own memory allocation system in ~memory.h~ and ~memory.cpp~. It wraps ~malloc~ and ~calloc~ with additional debugging features.
+
+** Memory::alloc_static
+
+This template function is the core allocator. It accepts a boolean template parameter ~p_ensure_zero~.
+
+#+begin_src cpp
+template <bool p_ensure_zero>
+void *Memory::alloc_static(size_t p_bytes, bool p_pad_align)
+#+end_src
+
+** Key Features
+
+1. **Zero-fill option** — If ~p_ensure_zero~ is ~true~, it uses ~calloc~ (zero-initialized). Otherwise ~malloc~.
+2. **Padding / Alignment** — When ~p_pad_align~ is ~true~ (or always in debug mode), it adds ~DATA_OFFSET~ extra bytes before the actual data. This stores the allocation size.
+3. **Size tracking** — The real size is written at ~SIZE_OFFSET~ bytes before the returned pointer. This helps detect buffer overflows.
+4. **Profiling** — ~GodotProfileAlloc~ tracks memory usage statistics.
+5. **Debug stats** — In debug mode, ~_current_mem_usage~ and ~_max_mem_usage~ track total memory.
+
+** Memory Layout
+
+```
+| SIZE_OFFSET | DATA_OFFSET |                |
+| [real size] | [padding]   | [user data...] |
+
+malloc ptr     return ptr     user starts here
+```
+
+** Related Notes
+
+- [[id:20250527T061305][C++ void* Pointers]] — alloc_static returns void*
+- [[id:20250527T190202][C++ Templates]] — the bool template parameter enables compile-time dispatch
+- [[id:20250527T012125][Copy Constructors]] — Godot objects rely on proper copy semantics
+- [[id:20250527T230614][C++ Smart Pointers & Ref]] — Ref works with Godot's memory system
+- [[id:20250527T064553][Reference Counting]] — many Godot objects are ref-counted
+- [[id:20250527T012935][C++ Memory Management]] — parent topic
