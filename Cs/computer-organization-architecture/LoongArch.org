@@ -1,0 +1,13 @@
+#+title: LoongArch
+#+author: Hongbin Qu
+#+date: <2026-11-11 Wed 22:50>
+#+hugo_section: en/notes
+#+hugo_tags: "OS"
+#+hugo_categories: "Operating System"
+#+hugo_custom_front_matter: :logs "loongarch power by LoongSon chip"
+#+hugo_custom_front_matter: :logs_descripe ""
+
+
+* Prologue
+I don't konw why to learn loongarch. leave a my thought decide to learn loongarch. In November 2026, I went to use a Development Board as my home gateway that play a client-proxy role and filter the commerial advertisements
+First time I learned about the LoongSon Chip around high school, that was a MIPS architecture, which 
