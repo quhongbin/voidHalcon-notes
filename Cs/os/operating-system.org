@@ -34,7 +34,7 @@ n- A basic resources unit which is assigned with memory in OS
 :END:
 -
 
-| *dimension*                      | *Process*                              | *thread*                                 | *coroutine*                               |
+| *dimension*                      | *Process*                                | *thread*                                   | *coroutine*                                 |
 | *caller*                         | os's kernel                            | os's kernel                              | user program                              |
 | *memory space*                   | Individual(no shared)                  | share with Memory of Process             | share with Memory of Proces               |
 | *switching performance overhead* | very high (us-ms)                      | middle(us)                               | low(ns)                                   |
@@ -522,7 +522,7 @@ why we need Embedding A Free List?
 
 Assume we get 4K heap via malloc(), and virtual addres is 16384
 
-[[file:images/FreeSpace-Management/Embedding_Free_List.png]]
+[[file:images/FreeSpace-Management/Embedding_Free_List.svg]]
 
 When the three chunks are freed, there are a few of fragments in heap. So we need merge the chunks by coalescing
 
