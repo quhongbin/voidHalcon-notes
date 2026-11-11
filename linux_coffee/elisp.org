@@ -16,7 +16,7 @@
 ** lisp
 Lisp（LISt Processor）是由图灵奖得主 John McCarthy 在 1958 年设计发明的，是除了 Fortran 之外历史第二悠久的高级编程语言。
 
-在很多现代程序员眼中，Lisp 最显著的特征就是“那数不清的括号”（甚至常被戏称为 /Lots of Irritating Silly Parentheses/ 🤣）。但正是这种由括号包裹的结构，构成了 Lisp 最核心的设计美学：
+在很多现代程序员眼中，Lisp 最显著的特征就是“那数不清的括号”（甚至常被戏称为 /Lots of Irritating Silly Parentheses/ 🤣）。但正是这种由括号包裹的结构，构成了 Lisp 最核心的设计美学(write ast by hands😂)：
 
 1. *S-表达式 (S-expression) 与前缀记法*
    所有运算和函数调用都采用统一的前缀表达式： =(operator arg1 arg2 ...)= 。
@@ -85,13 +85,13 @@ Emacs 是一个活生生运行着的 Lisp 虚拟机，你不需要重启编辑�
 *** 2. 无敌的内建“自省”系统
 Emacs 被称为“自文档化 (Self-documenting)”的编辑器，这意味着遇到任何不懂的函数、变量或按键，你都不需要打开搜索引擎，Emacs 自身就是最权威的百科全书：
 
-| 快捷键 | 对应命令 | 功能作用 |
-|--------+-------------------+------------------------------------------|
-| ~C-h f~ | ~describe-function~ | 查看函数的文档注释、参数签名及所在源文件 |
-| ~C-h v~ | ~describe-variable~ | 查看变量的当前值、默认值及详细说明文档 |
-| ~C-h k~ | ~describe-key~      | 按下任意按键序列，查看它绑定了哪个 Elisp 函数 |
-| ~C-h o~ | ~describe-symbol~   | 模糊查找任意符号（函数、变量或 Face 样式） |
-| ~C-h i~ | ~info~             | 打开内置的 Info 手册库（包含完整的 Elisp 官方教程） |
+| 快捷键 | 对应命令          | 功能作用                                            |
+|--------+-------------------+-----------------------------------------------------|
+| ~C-h f~  | ~describe-function~ | 查看函数的文档注释、参数签名及所在源文件            |
+| ~C-h v~  | ~describe-variable~ | 查看变量的当前值、默认值及详细说明文档              |
+| ~C-h k~  | ~describe-key~      | 按下任意按键序列，查看它绑定了哪个 Elisp 函数       |
+| ~C-h o~  | ~describe-symbol~   | 模糊查找任意符号（函数、变量或 Face 样式）          |
+| ~C-h i~  | ~info~              | 打开内置的 Info 手册库（包含完整的 Elisp 官方教程） |
 
 更绝的是：在 ~describe-function~ 或 ~describe-variable~ 的帮助页面里，函数名旁边会有一个链接，点击（或者按回车）可以直接跳转到该函数在 Elisp（甚至 C 语言）中的 *具体源码实现* ！这种完全透明的代码可见性，是其他现代编辑器无法比拟的。
 
