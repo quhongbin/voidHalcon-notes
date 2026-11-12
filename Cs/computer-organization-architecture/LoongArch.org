@@ -10,4 +10,4 @@
 
 * Prologue
 I don't konw why to learn loongarch. leave a my thought decide to learn loongarch. In November 2026, I went to use a Development Board as my home gateway that play a client-proxy role and filter the commerial advertisements
-First time I learned about the LoongSon Chip around high school, that was a MIPS architecture, which 
+First time I learned about the LoongSon Chip around high school, that was a MIPS architecture, which is RISC(Reduce Instruction Set Computer)
